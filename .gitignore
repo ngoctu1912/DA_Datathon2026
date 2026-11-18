@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.vscode/
+/data/processed/orders_common.csv
+/data/processed/order_items_common.csv
+/data/model/du_bao/

@@ -1,0 +1,3 @@
+scenario,orders,customers,common_customers,removed_customers,added_customers,customers_with_changed_RFM,ari_frozen_model,share_changed_frozen_labels,method
+remove_delivered_without_shipment,516192,85095,85095,20,0,493,0.996302257875811,0.0011046477466361126,"Frozen primary scaler and centers, original center IDs; not refitted; expansion is hypothetical, not a status correction"
+hypothesis_add_shipped_with_delivery_date,530478,85735,85115,0,620,11169,0.9614031590633959,0.012477236679786171,"Frozen primary scaler and centers, original center IDs; not refitted; expansion is hypothetical, not a status correction"

@@ -1,0 +1,92 @@
+{
+  "state": "completed",
+  "label": "professional_model_v1",
+  "cutoff": "2022-12-31",
+  "status_semantics": "Observed source status; no status history or verified as-of extraction time",
+  "seed": 42,
+  "raw_sha256": {
+    "customers.csv": "a6fa47944039de6712dc865027e2e4e4e08c920f84a8b5c162335cc8d7220a56",
+    "geography.csv": "f5d150bdfdfca7ac0c38118b1f5f8ea1b3f5de4cd23fa700d5aa0adcd2ab6353",
+    "inventory.csv": "1bbcdd89569a5df4b938ac0577f0657030c41c3a18956f4ad748f1bf4f289768",
+    "order_items.csv": "a8b2adfe54eec0dda79ced28e5987d6846b7f31cb6052356ab3a1772cc85e0bc",
+    "orders.csv": "f4b3029f386f5f5a6baabd78aad0140e5a101ea6975f4cbaba04976813f3f3af",
+    "payments.csv": "aacef7716fe1c1442bc46e8885019cf1d67e12655c2e0f28bd0c9e92e145a6e7",
+    "products.csv": "6a9d322d1c5ebacb474932a08a60eedd5338acbcfdda577085bae1aa1a4a3d4f",
+    "promotions.csv": "158ee5843ee41a28b5f5748ab2c73bd712524da6c00930fa9e80774e3751b0be",
+    "returns.csv": "501717bc76cf237c0dbbb68f586351870047198042c4232376983fec94699534",
+    "reviews.csv": "5230859408955d611bc430df5d788eb66fedd56f3be9f6fe912af6da643fa0f1",
+    "sales.csv": "081d539f50d41f202edfb064a2cf218d44e3ac1429c6c34fd1869ae060aa882d",
+    "sample_submission.csv": "1c0c574c3bc0edab5b053fb21c0cbb67393316d206503e14fbe4b17b9ce41aba",
+    "shipments.csv": "9a96bd80dde30dae22d726cdcd414dd8463b879de4ec1f09334c22396a56242b",
+    "web_traffic.csv": "9bc9b72e44a814e50ae6e9fdcfa915cda6fa2c5cf306b1b4b36b27dce8f44cf3"
+  },
+  "versions": {
+    "python": "3.12.14",
+    "pandas": "2.2.3",
+    "numpy": "2.3.5",
+    "sklearn": "1.8.0"
+  },
+  "common_manifest_sha256": "e918703aad9a63ca969428bc925c1d799f5735cea7ef583d87e904f1f86d0022",
+  "scope_counts": {
+    "eligible_delivered": 85115,
+    "no_order_records": 31684,
+    "orders_but_no_eligible_delivered": 5131
+  },
+  "eligible_orders": 516716,
+  "exact_net_total": "12518175957.20",
+  "features": [
+    "Recency",
+    "Frequency",
+    "Monetary"
+  ],
+  "behavior_usage": "profiling_only",
+  "selected": {
+    "variant": "TN1",
+    "k": 3,
+    "selection": "Top rank-sum shortlist; minimum cluster share >=1%; first candidate with mean seed ARI >=0.90. Exploratory recommendation, not proof of business effectiveness.",
+    "center_to_cluster": {
+      "2": 0,
+      "0": 1,
+      "1": 2
+    },
+    "center_coordinates": [
+      [
+        -0.6368233583014097,
+        -0.040300892223875326,
+        -0.044379856519916966
+      ],
+      [
+        -0.9466225836084367,
+        2.1314120752656374,
+        2.138696944472888
+      ],
+      [
+        1.0274483146776028,
+        -0.5888029302954071,
+        -0.5862046366417774
+      ]
+    ],
+    "scaler_mean": [
+      1327.202572989485,
+      6.070798331668919,
+      147073.6762873759
+    ],
+    "scaler_scale": [
+      1029.3521959080758,
+      7.040850890597249,
+      179936.36998091845
+    ]
+  },
+  "raw_unchanged": true,
+  "limitations": [
+    "No state transition history or verified extraction time",
+    "No actual settlement or verified meaning of delivery_date",
+    "No automatic status correction; shipped expansion is hypothetical",
+    "Primary RFM covers delivered, not all customer activity",
+    "No CLV/churn prediction or causal marketing claims",
+    "Sampling metrics and internal indices do not establish business value",
+    "No cap or deletion of valid extreme RFM; observed history length may influence F/M",
+    "Hierarchy sample-only; DBSCAN not implemented in this baseline",
+    "Sensitivity uses frozen scaler/centers, not a refitted alternative model"
+  ]
+}
