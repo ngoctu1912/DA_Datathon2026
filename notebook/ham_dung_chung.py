@@ -235,8 +235,8 @@ def v01():
 
 
     ROOT = PROJECT_ROOT
-    FORMATS = {'order_date': '%Y-%m-%d', 'signup_date': '%m/%d/%Y'}
-    PATTERNS = {'order_date': r'\d{4}-\d{2}-\d{2}', 'signup_date': r'\d{1,2}/\d{1,2}/\d{4}'}
+    FORMATS = {'order_date': '%Y-%m-%d', 'signup_date': '%Y-%m-%d'}
+    PATTERNS = {'order_date': r'\d{4}-\d{2}-\d{2}', 'signup_date': r'\d{4}-\d{2}-\d{2}'}
 
 
     def digest(path):
@@ -2733,7 +2733,7 @@ def table_reader():
         'shipments': ['ship_date', 'delivery_date'], 'web_traffic': ['date'],
         'products': [], 'geography': [], 'order_items': [], 'payments': [],
     }
-    DATE_FORMATS = {'customers': '%m/%d/%Y'}
+    DATE_FORMATS = {'customers': '%Y-%m-%d'}
 
 
     def is_identifier(name):
@@ -3431,7 +3431,7 @@ def contracts():
         "customers": TableSpec(
             "customers", "customer record",
             _columns("customer_id zip city signup_date gender age_group acquisition_channel",
-                     dates={"signup_date": "%m/%d/%Y"}),
+                     dates={"signup_date": "%Y-%m-%d"}),
             keys=(("customer_id",),), foreign_keys=(_fk("zip", "geography"),),
             dq_codes=_dq(1, 2, 3, 19, 20, 21, 24)),
         "geography": TableSpec(
@@ -3858,7 +3858,7 @@ def foundation():
     def resolve_project_root(root=None, *, start=None):
         """Use an explicit root, or ascend from start/env/cwd; never require reports."""
         def is_root(path):
-            return (path / "data/raw").is_dir() and (path / "notebooks/ham_dung_chung.py").is_file()
+            return (path / "data/raw").is_dir() and (path / "notebook/ham_dung_chung.py").is_file()
 
         if root is not None:
             candidate = Path(root).expanduser().resolve()
