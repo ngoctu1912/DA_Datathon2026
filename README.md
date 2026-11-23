@@ -15,7 +15,7 @@ Mở `notebook/` và đọc theo số thứ tự. Mỗi notebook trình bày m�
 
 - [`data/raw/`](data/raw/) chứa 14 CSV nguồn.
 - [`data/processed/`](data/processed/) chứa `orders_common.csv`, `order_items_common.csv` và thông tin kiểm tra phiên bản của hai bảng.
-- [`data/model/`](data/model/) chứa bộ đặc trưng, nhãn, kết quả lựa chọn mô hình và tham số phân cụm. Hai phiên bản CSV có nội dung giống hệt nhau được gộp dưới một lượt `v1`.
+- [`data/model/`](data/model/) chứa bộ đặc trưng, nhãn, kết quả lựa chọn mô hình và tham số phân cụm. Phần phân cụm chỉ lưu `combined_v1/ket_qua_phan_cum.csv` và `combined_v1/mo_hinh_phan_cum.json`; không dùng ZIP mô hình hoặc bảng thử nghiệm rời.
 
 ## Chạy lại trong VS Code hoặc Jupyter
 
@@ -29,5 +29,10 @@ Mỗi notebook tự tìm dữ liệu và nạp hàm từ [notebook dùng chung](
 
 - Chạy GD2 để kiểm tra hoặc tạo hai CSV đã xử lý. Đọc kết quả đã lưu trong notebook khi chỉ cần xem nội dung.
 - Trong Bài 1, đọc NV01–NV06 trước TH01 nếu muốn theo dõi cách hình thành từng chỉ tiêu. TH01 đọc các bảng kết quả đã lưu của sáu notebook.
-- Bài 2 mặc định đọc dữ liệu của lượt phân cụm `v1`. Để huấn luyện mới, đặt `DATATHON_MODEL_RUN` thành tên lượt mới ở kernel PC03, rồi sử dụng cùng tên đó khi chạy PC04 và PC05.
+- Bài 2 dùng CSV kết quả và JSON tham số của `combined_v1`; các bảng đánh giá được tính lại để hiển thị. Để huấn luyện mới, đặt `DATATHON_MODEL_RUN` thành tên lượt mới ở kernel PC03, rồi sử dụng cùng tên đó khi chạy PC04–PC06.
 - Bài 3 hiển thị dự báo trong notebook. Bật `XUAT_DU_BAO` nếu cần xuất một CSV vào `data/model/du_bao/`. Tập kiểm tra riêng được chấm trên Kaggle.
+
+
+## Bản phân khúc tích hợp 23/11/2026
+
+Đọc [BAT_DAU.md](BAT_DAU.md) để chạy PC01–PC06, xem kết quả `combined_v1` và giới hạn. Thư mục `v1` cũ đã được bỏ; đối soát từ raw/common và bộ kết quả hiện tại.

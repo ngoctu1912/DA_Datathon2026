@@ -1,0 +1,11 @@
+{
+  "input_fingerprint": "5dafd49ef071f933a6fbcd7142ad956c61537a6372469aaf6b9ae97e29a4a2524ff4023baf2cc1d3543ac2627218c888cbb8b2a89df7e0d2253cdadc38e8b4b5",
+  "orders": 646945,
+  "eligible_orders": 516716,
+  "customers": 85115,
+  "exact_net_total": "12518175957.20",
+  "all_order_net_exact_match_raw": true,
+  "all_customer_rfm_exact_match_baseline": true,
+  "reference": "current_source_verified_model",
+  "method": "Independent Decimal sum from every raw item; one-to-one order keys and source date/status/customer equality; exact per-customer current-model RFM when available."
+}

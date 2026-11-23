@@ -1,0 +1,14 @@
+{
+  "persistent_model_files": [
+    "ket_qua_phan_cum.csv",
+    "mo_hinh_phan_cum.json"
+  ],
+  "fresh_full_training_passed": true,
+  "countermodels": 36,
+  "sensitivity_passed": true,
+  "only_persistent_files": [
+    "ket_qua_phan_cum.csv",
+    "mo_hinh_phan_cum.json"
+  ],
+  "analysis_does_not_modify_model_files": true
+}

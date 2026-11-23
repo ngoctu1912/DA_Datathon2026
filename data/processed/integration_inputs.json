@@ -1,0 +1,22 @@
+{
+  "files": {
+    "data/raw/customers.csv": "5e58abf49e99d52bf8ddda44601a30e78667760908b862287bc6e69a45cf77b8",
+    "data/raw/geography.csv": "f5d150bdfdfca7ac0c38118b1f5f8ea1b3f5de4cd23fa700d5aa0adcd2ab6353",
+    "data/raw/inventory.csv": "1bbcdd89569a5df4b938ac0577f0657030c41c3a18956f4ad748f1bf4f289768",
+    "data/raw/order_items.csv": "a8b2adfe54eec0dda79ced28e5987d6846b7f31cb6052356ab3a1772cc85e0bc",
+    "data/raw/orders.csv": "f4b3029f386f5f5a6baabd78aad0140e5a101ea6975f4cbaba04976813f3f3af",
+    "data/raw/payments.csv": "aacef7716fe1c1442bc46e8885019cf1d67e12655c2e0f28bd0c9e92e145a6e7",
+    "data/raw/products.csv": "890946808d8237dad0d39153efd427f5399a5e6eaa2302681ab6bdf8a706204c",
+    "data/raw/promotions.csv": "158ee5843ee41a28b5f5748ab2c73bd712524da6c00930fa9e80774e3751b0be",
+    "data/raw/returns.csv": "501717bc76cf237c0dbbb68f586351870047198042c4232376983fec94699534",
+    "data/raw/reviews.csv": "5230859408955d611bc430df5d788eb66fedd56f3be9f6fe912af6da643fa0f1",
+    "data/raw/sales.csv": "081d539f50d41f202edfb064a2cf218d44e3ac1429c6c34fd1869ae060aa882d",
+    "data/raw/sample_submission.csv": "1c0c574c3bc0edab5b053fb21c0cbb67393316d206503e14fbe4b17b9ce41aba",
+    "data/raw/shipments.csv": "9a96bd80dde30dae22d726cdcd414dd8463b879de4ec1f09334c22396a56242b",
+    "data/raw/web_traffic.csv": "9bc9b72e44a814e50ae6e9fdcfa915cda6fa2c5cf306b1b4b36b27dce8f44cf3",
+    "data/processed/orders_common.csv": "3a382263a9b4ae171d77ca1d7de276d76527e2401a6c9915cb150dc2bc0921c8",
+    "data/processed/order_items_common.csv": "a0b89c8f97ff46d0f80fabaad99ae58c9793dccf48dcbb81a9bb0144db7828c0"
+  },
+  "method": "GD2 common delivery + independent raw Decimal audit",
+  "clean_files_available": false
+}
