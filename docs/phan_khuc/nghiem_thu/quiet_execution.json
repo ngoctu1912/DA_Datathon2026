@@ -1,0 +1,6 @@
+{
+  "reports_absent_before_and_after": true,
+  "all_six_notebooks_and_support_succeeded": true,
+  "non_notebook_files_changed": false,
+  "method": "Actual fresh IPython execution; SHA256 inventory unchanged on default cached run"
+}

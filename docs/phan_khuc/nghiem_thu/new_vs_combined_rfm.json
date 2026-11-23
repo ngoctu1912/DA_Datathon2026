@@ -1,0 +1,21 @@
+{
+  "same_customer_population": true,
+  "same_recency": true,
+  "same_frequency": true,
+  "max_float_monetary_difference": 2.3283064365386963e-10,
+  "new_first_ids": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "combined_first_ids": [
+    "1",
+    "10",
+    "10000",
+    "100001",
+    "100009"
+  ],
+  "interpretation": "Different deterministic row order changes random initializations and sampled customer IDs even at same seed. Tiny floating monetary differences also exist. Counts from independently rerun version must be reported, not copied from previous labels."
+}
