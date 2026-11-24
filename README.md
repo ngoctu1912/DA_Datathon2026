@@ -8,14 +8,14 @@ Mở `notebook/` và đọc theo số thứ tự. Mỗi notebook trình bày m�
 | 02. Tiền xử lý | [GD2](notebook/02_tien_xu_ly/GD2_tien_xu_ly_va_kiem_chung.ipynb) | Chuẩn hóa và đối soát hai bảng ở cấp đơn hàng và cấp dòng hàng. |
 | 03. EDA | [EDA tổng quan](notebook/03_eda/EDA_tong_quan.ipynb) | Khám phá biến động doanh thu, giá vốn và mức tập trung giá trị mua hàng. |
 | 04. Bài 1 — Phân tích kinh doanh | [TH01](notebook/04_phan_tich_kinh_doanh/TH01_tong_hop_va_doi_soat_NV01_NV06.ipynb) | Xem tổng hợp sáu nghiệp vụ. [NV01–NV06](notebook/04_phan_tich_kinh_doanh/) trình bày chi tiết. |
-| 05. Bài 2 — Phân khúc khách hàng | [PC01–PC05](notebook/05_phan_khuc_khach_hang/) | Từ xây dựng RFM đến lựa chọn mô hình, hồ sơ nhóm và kiểm tra độ nhạy. |
+| 05. Bài 2 — Phân khúc khách hàng | [PC01–PC06](notebook/05_phan_khuc_khach_hang/) | Kiểm chứng RFM, thực nghiệm phân cụm, mô tả nhóm, kiểm độ nhạy và đề xuất chiến lược. |
 | 06. Bài 3 — Dự báo doanh thu và giá vốn | [Baseline](notebook/06_du_bao/baseline.ipynb) | Dùng lịch sử Sales và cột `Date` của mẫu nộp bài để tạo dự báo tham chiếu. |
 
 ## Dữ liệu nằm ở đâu?
 
 - [`data/raw/`](data/raw/) chứa 14 CSV nguồn.
 - [`data/processed/`](data/processed/) chứa `orders_common.csv`, `order_items_common.csv` và thông tin kiểm tra phiên bản của hai bảng.
-- [`data/model/`](data/model/) chứa bộ đặc trưng, nhãn, kết quả lựa chọn mô hình và tham số phân cụm. Phần phân cụm chỉ lưu `combined_v1/ket_qua_phan_cum.csv` và `combined_v1/mo_hinh_phan_cum.json`; không dùng ZIP mô hình hoặc bảng thử nghiệm rời.
+- [`data/model/`](data/model/) chứa đầu ra mô hình. Riêng Bài 2 chỉ lưu `phan_khuc/combined_v1/ket_qua_phan_cum.csv` gồm mã khách, RFM, mã cụm và tên nhóm; không lưu JSON mô hình hay báo cáo phụ.
 
 ## Chạy lại trong VS Code hoặc Jupyter
 
@@ -29,10 +29,12 @@ Mỗi notebook tự tìm dữ liệu và nạp hàm từ [notebook dùng chung](
 
 - Chạy GD2 để kiểm tra hoặc tạo hai CSV đã xử lý. Đọc kết quả đã lưu trong notebook khi chỉ cần xem nội dung.
 - Trong Bài 1, đọc NV01–NV06 trước TH01 nếu muốn theo dõi cách hình thành từng chỉ tiêu. TH01 đọc các bảng kết quả đã lưu của sáu notebook.
-- Bài 2 dùng CSV kết quả và JSON tham số của `combined_v1`; các bảng đánh giá được tính lại để hiển thị. Để huấn luyện mới, đặt `DATATHON_MODEL_RUN` thành tên lượt mới ở kernel PC03, rồi sử dụng cùng tên đó khi chạy PC04–PC06.
+- Bài 2 chạy PC01–PC06; các notebook tự nạp `00_ham_ho_tro_phan_cum.ipynb` trong cùng thư mục, không cần chạy riêng file 00. Mô hình được huấn luyện từ raw/common, không nạp kết quả cũ; PC04–PC06 tự dựng lại khi chạy ở kernel riêng. Nếu CSV đã có và khác nội dung mới, chương trình dừng lưu; dùng cùng tên `DATATHON_MODEL_RUN` mới ở PC03–PC06 để lưu lượt khác.
 - Bài 3 hiển thị dự báo trong notebook. Bật `XUAT_DU_BAO` nếu cần xuất một CSV vào `data/model/du_bao/`. Tập kiểm tra riêng được chấm trên Kaggle.
 
 
-## Bản phân khúc tích hợp 23/11/2026
+## Cách thực hiện Bài 2
 
-Đọc [BAT_DAU.md](BAT_DAU.md) để chạy PC01–PC06, xem kết quả `combined_v1` và giới hạn. Thư mục `v1` cũ đã được bỏ; đối soát từ raw/common và bộ kết quả hiện tại.
+- **PC01–PC02:** đối soát raw/common, tính và phân tích RFM từ đơn `delivered` đến 31/12/2022; Monetary là tiền sau giảm giá, không phải lợi nhuận.
+- **PC03–PC05:** thử 14 cấu hình K-Means (RFM gốc hoặc log F/M, chuẩn hóa, k=2–8), chọn theo Silhouette, Davies–Bouldin, quy mô cụm và độ ổn định; đối chứng Hierarchical/GMM/DBSCAN trên mẫu, lập hồ sơ nhóm và kiểm độ nhạy.
+- **PC06:** đặt tên nhóm, đề xuất chăm sóc/KPI và bàn giao CSV. Bảng, biểu đồ hiển thị trong notebook; chưa có bằng chứng đo tác động chiến lược thực tế.
