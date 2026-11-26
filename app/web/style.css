@@ -99,6 +99,23 @@ button:focus-visible,select:focus-visible,a:focus-visible {
     padding: 0 16px;
 }
 
+.brand-logo {
+    position: relative;
+    width: 164px;
+    max-width: 100%;
+    min-width: 0;
+    flex-shrink: 1;
+    overflow: hidden;
+}
+
+.brand-logo img {
+    display: block;
+    width: 100%;
+    max-width: 164px;
+    height: auto;
+    object-fit: contain;
+}
+
 .brand strong {
     color: white;
     font-size: 16px;
