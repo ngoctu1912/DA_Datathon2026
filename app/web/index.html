@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytix | Datathon 2026</title>
+
+    <!-- Font chữ và định dạng giao diện -->
+    <link rel="stylesheet" href="style.css?v=767ee41dc724">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght@400&amp;display=swap">
+</head>
+<body>
+    <!-- 1. SIDEBAR: thanh điều hướng bên trái -->
+    <aside class="sidebar">
+        <div>
+            <!-- Logo và tên ứng dụng -->
+            <div class="brand">
+                <span class="brand-icon" data-icon="insights"></span>
+                <strong>Analytix</strong>
+            </div>
+
+            <!-- Điều hướng: năm chức năng cùng một nhóm -->
+            <div class="nav-group">
+                <nav id="workspace" aria-label="Điều hướng chính"></nav>
+            </div>
+        </div>
+
+        <!-- Thông tin nhóm thực hiện -->
+        <div class="account">
+            <span class="avatar">DA</span>
+            <div>
+                <strong>Datathon 2026</strong>
+                <small>Nhóm phân tích dữ liệu</small>
+            </div>
+            <i class="online"></i>
+        </div>
+    </aside>
+
+    <!-- 2. KHU VỰC NỘI DUNG CHÍNH -->
+    <div class="shell">
+        <!-- Thanh tiêu đề -->
+        <header>
+            <div class="header-left">
+                <button type="button" class="mobile" id="nav-toggle" aria-label="Menu">
+                    ☰
+                </button>
+                <span class="muted">Analytix</span>
+                <span class="muted">›</span>
+                <b id="breadcrumb">Tổng quan</b>
+            </div>
+
+            <!-- Khôi phục lựa chọn mặc định của trang hiện tại -->
+            <div class="header-right">
+                <button type="button" id="refresh" class="soft">
+                    <span data-icon="refresh"></span>
+                    Làm mới
+                </button>
+            </div>
+        </header>
+
+        <!-- Nội dung của 5 trang được hiển thị từ các file JavaScript riêng -->
+        <main id="app" aria-live="polite">
+            <div class="card">Đang đọc dữ liệu đồ án…</div>
+        </main>
+
+    </div>
+
+    <!-- 3. HỘP THOẠI HIỂN THỊ CHI TIẾT -->
+    <dialog id="dialog">
+        <div class="dialog-head">
+            <h2 id="dialog-title"></h2>
+            <button type="button" id="close-dialog" aria-label="Đóng">✕</button>
+        </div>
+        <div id="dialog-body"></div>
+    </dialog>
+
+    <!-- 4. JAVASCRIPT: tải theo thứ tự phụ thuộc (defer) -->
+    <!-- Cấu hình và biểu đồ dùng chung -->
+    <script src="common.js?v=860f66b7c789" defer></script>
+    <script src="charts.js?v=7320a3eceedc" defer></script>
+
+    <!-- Nội dung của từng trang; forecast.js cung cấp hàm đánh giá chung -->
+    <script src="forecast.js?v=1056167d6374" defer></script>
+    <script src="overview.js?v=93c6c50983c9" defer></script>
+    <script src="customers.js?v=86885ef79d76" defer></script>
+    <script src="clusters.js?v=6ed6d9d532b2" defer></script>
+    <script src="models.js?v=f263c7165b54" defer></script>
+
+    <!-- Tương tác, xuất CSV và khởi động ứng dụng -->
+    <script src="interactions.js?v=27e5c2842311" defer></script>
+    <script src="app.js?v=7d4c321f3fff" defer></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# Xử lý dữ liệu
+numpy
+pandas
+scipy
+
+# Huấn luyện và đánh giá mô hình
+scikit-learn
+statsmodels
+catboost
+
+# Hiển thị và chạy notebook
+matplotlib
+ipython
+
+# Giới hạn luồng xử lý khi chạy phân cụm
+threadpoolctl
+
+# Đọc bảng thực nghiệm đã lưu trong notebook PC03
+lxml

@@ -1,0 +1,1127 @@
+/* 1. Biến màu, font chữ và thiết lập chung */
+:root {
+    --primary: #2a45ba;
+    --primary-container: #465fd4;
+    --nav: #041b3c;
+    --surface: #f9f9ff;
+    --soft: #f0f3ff;
+    --border: #e4e8f2;
+    --ink: #121c2d;
+    --muted: #757685;
+    --green: #059669;
+    --orange: #b45309;
+    --shadow: 0 1px 5px #15264d0c;
+    font-family: Inter,system-ui,-apple-system,sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    background: var(--surface);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+button,select,input {
+    font: inherit;
+}
+
+button,select {
+    cursor: pointer;
+}
+
+button {
+    border: 1px solid transparent;
+    background: white;
+    color: var(--ink);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 34px;
+}
+
+button:hover {
+    filter: brightness(.96);
+}
+
+button:focus-visible,select:focus-visible,a:focus-visible {
+    outline: 2px solid #91a1ff;
+    outline-offset: 2px;
+}
+
+.primary {
+    background: var(--primary);
+    color: white;
+}
+
+.soft {
+    background: var(--soft);
+    color: #444653;
+}
+
+.outline {
+    border-color: var(--border);
+    background: white;
+}
+
+.small {
+    font-size: 12px;
+    padding: 5px 8px;
+    min-height: 28px;
+}
+
+/* 2. Sidebar và thanh điều hướng */
+.sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 256px;
+    background: var(--nav);
+    color: #d0daf2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 50;
+    box-shadow: 0 1px 8px #0002;
+}
+
+.brand {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 0 16px;
+}
+
+.brand strong {
+    color: white;
+    font-size: 16px;
+    letter-spacing: -.2px;
+}
+
+.brand small {
+    margin-left: auto;
+    font-size: 11px;
+    background: #ffffff16;
+    color: #dee1ff;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+.brand-icon {
+    background: #465fd4;
+    color: white;
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+}
+
+.nav-group {
+    padding: 16px 16px 0;
+}
+
+.nav-group+.nav-group {
+    padding-top: 24px;
+}
+
+.nav-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .6px;
+    color: #a3afc5;
+    margin: 0 8px 6px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sidebar a {
+    color: #d0daf2;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 8px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.sidebar a:hover {
+    background: #34476a;
+}
+
+.sidebar a.active {
+    background: #465fd4;
+    color: #fff;
+    box-shadow: var(--shadow);
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px;
+    background: #34476a66;
+}
+
+.account strong {
+    display: block;
+    font-size: 13px;
+    color: white;
+}
+
+.account small {
+    display: block;
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.avatar {
+    display: grid;
+    place-items: center;
+    background: #465fd4;
+    color: white;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.online {
+    display: inline-block;
+    background: #10b981;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.account .online {
+    margin-left: auto;
+}
+
+/* 3. Khung nội dung và header */
+.shell {
+    margin-left: 256px;
+    min-height: 100vh;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    height: 64px;
+    background: #f9f9ffee;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 1px 8px #0000000a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 40;
+}
+
+.header-left,.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-left {
+    font-size: 13px;
+}
+
+.sync {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    background: var(--soft);
+    border-radius: 30px;
+    padding: 5px 8px;
+    margin-left: 6px;
+}
+
+.header-avatar {
+    width: 32px;
+    height: 32px;
+    background: var(--primary);
+}
+
+.mobile {
+    display: none;
+}
+
+main {
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 1800px;
+    margin: auto;
+}
+
+h1,h2,h3,p {
+    margin: 0;
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 1.27;
+    letter-spacing: -.6px;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 600;
+    letter-spacing: -.1px;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+    margin-top: 4px;
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: .7px;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.page-head,.card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.page-head .controls {
+    justify-content: flex-end;
+}
+
+.controls,.tabs,.legend {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.tabs {
+    background: var(--soft);
+    padding: 3px;
+    border-radius: 8px;
+    gap: 2px;
+}
+
+.tabs button {
+    background: transparent;
+    color: #59647a;
+    min-height: 28px;
+    padding: 5px 11px;
+    font-size: 12px;
+}
+
+.tabs button.active {
+    background: white;
+    color: var(--primary);
+    box-shadow: 0 1px 3px #0001;
+}
+
+.controls select {
+    max-width: 250px;
+}
+
+.select {
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: white;
+    color: #444653;
+    padding: 8px 10px;
+    font-size: 13px;
+    min-height: 34px;
+}
+
+/* 5. Lưới dashboard và thẻ nội dung */
+.grid {
+    display: grid;
+    gap: 16px;
+}
+
+.four {
+    grid-template-columns: repeat(4,minmax(0,1fr));
+}
+
+.three {
+    grid-template-columns: repeat(3,minmax(0,1fr));
+}
+
+.two {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 24px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #edf0f6;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 22px;
+    min-width: 0;
+}
+
+.metric {
+    padding: 17px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 119px;
+    gap: 9px;
+}
+
+.metric-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: .35px;
+    color: #657086;
+    font-weight: 600;
+}
+
+.metric-label svg {
+    color: var(--primary);
+}
+
+.metric-value {
+    font-size: 27px;
+    line-height: 1.28;
+    letter-spacing: -.6px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
+}
+
+.metric-note,.muted {
+    color: var(--muted);
+}
+
+.metric-note {
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #2a45ba;
+    background: #edf0ff;
+    padding: 4px 7px;
+    border-radius: 5px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.green {
+    color: #047857;
+    background: #e4f7ed;
+}
+
+.orange {
+    color: #a95000;
+    background: #fff0df;
+}
+
+/* 6. Biểu đồ và bảng dữ liệu */
+.chart {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    margin-top: 12px;
+}
+
+.chart svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+}
+
+.legend {
+    font-size: 12px;
+    color: #59647a;
+    gap: 12px;
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.chart-footer {
+    border-top: 1px solid var(--border);
+    margin-top: 13px;
+    padding-top: 12px;
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #64748b;
+    flex-wrap: wrap;
+}
+
+.list-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin: 14px 0 6px;
+    font-size: 13px;
+}
+
+.list-row b {
+    font-weight: 600;
+}
+
+.bar-track {
+    height: 7px;
+    background: #eef1f8;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: var(--primary-container);
+    border-radius: 9px;
+}
+
+.rank {
+    display: inline-grid;
+    place-items: center;
+    color: #64748b;
+    background: var(--soft);
+    border-radius: 6px;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    font-size: 12px;
+}
+
+.product {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 14px;
+}
+
+.product>div {
+    flex: 1;
+    min-width: 0;
+}
+
+.product b {
+    font-size: 13px;
+}
+
+.product small {
+    display: block;
+    font-size: 11px;
+    color: var(--muted);
+    margin: 3px 0;
+}
+
+.donut-row {
+    display: grid;
+    grid-template-columns: 42% 1fr;
+    align-items: center;
+    gap: 18px;
+    margin: 12px 0;
+}
+
+.donut {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    max-width: 190px;
+    margin: auto;
+    width: 100%;
+}
+
+.donut-center {
+    width: 68%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: white;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.donut-center small {
+    font-size: 10px;
+    color: var(--muted);
+    font-weight: 500;
+    display: block;
+}
+
+.mini {
+    padding: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.mini-icon {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    background: var(--soft);
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.mini .eyebrow {
+    color: #64748b;
+    font-size: 10px;
+}
+
+.mini strong {
+    display: block;
+    font-size: 15px;
+    line-height: 1.35;
+}
+
+.mini p {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 5px;
+    line-height: 1.5;
+}
+
+.table-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.table-card>.card-head {
+    padding: 18px 20px;
+}
+
+.table-wrap {
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 13px;
+}
+
+th {
+    background: #f0f3ff;
+    font-size: 11px;
+    letter-spacing: .25px;
+    color: #58647b;
+    font-weight: 600;
+    padding: 12px 14px;
+    white-space: nowrap;
+}
+
+td {
+    border-bottom: 1px solid #edf0f6;
+    padding: 12px 14px;
+    line-height: 1.5;
+    vertical-align: middle;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+td.num,th.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+td small {
+    color: var(--muted);
+    display: block;
+}
+
+.notice {
+    padding: 10px 14px;
+    background: #f0f3ff;
+    color: #425175;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.link {
+    background: transparent;
+    color: var(--primary);
+    padding: 0;
+    min-height: 0;
+    font-size: 12px;
+}
+
+footer {
+    color: #788398;
+    font-size: 11px;
+    padding: 0 24px 20px;
+    text-align: right;
+}
+
+dialog {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    max-width: min(900px,95vw);
+    width: 720px;
+    max-height: 85vh;
+    box-shadow: 0 15px 60px #0003;
+    padding: 22px;
+    color: var(--ink);
+}
+
+dialog::backdrop {
+    background: #041b3c77;
+}
+
+.dialog-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.dialog-head button {
+    background: var(--soft);
+}
+
+#dialog-body {
+    line-height: 1.6;
+}
+
+.dialog-body p {
+    margin-bottom: 10px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 12px;
+    color: #657086;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
+.chart-tip {
+    position: absolute;
+    pointer-events: none;
+    background: #17223b;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    z-index: 2;
+    white-space: nowrap;
+    display: none;
+}
+
+.empty {
+    display: grid;
+    place-items: center;
+    min-height: 160px;
+    color: var(--muted);
+    text-align: center;
+}
+
+.chart svg text {
+    font-family: Inter,system-ui,sans-serif;
+    font-size: 11px;
+    fill: #758198;
+}
+
+.chart svg .axis {
+    stroke: #e1e6f0;
+    stroke-width: 1;
+}
+
+.chart svg .point {
+    cursor: crosshair;
+}
+
+.table-status {
+    white-space: nowrap;
+}
+
+.model-name {
+    max-width: 310px;
+}
+
+.kpi-tag {
+    font-size: 10px;
+    color: #64748b;
+}
+
+.section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: .4px;
+    font-weight: 600;
+    margin-top: 16px;
+}
+
+.pca-legend {
+    margin-top: 12px;
+}
+
+.error {
+    background: #fff0f0;
+    color: #a11;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+}
+
+.detail-grid>div {
+    background: var(--soft);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+/* 7. Giao diện responsive */
+@media (max-width:1200px) {
+    .four {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+    .two {
+        gap: 16px;
+    }
+    .sync {
+        display: none;
+    }
+    .page-head .controls {
+        justify-content: flex-start;
+    }
+    .metric-value {
+        font-size: 25px;
+    }
+}
+
+@media (max-width:960px) {
+    .two,.three {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        width: 220px;
+    }
+    .shell {
+        margin-left: 220px;
+    }
+    .donut-row {
+        grid-template-columns: 160px 1fr;
+    }
+}
+
+@media (max-width:700px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 256px;
+        transition: transform .2s;
+    }
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    .shell {
+        margin: 0;
+    }
+    .mobile {
+        display: inline-flex;
+        background: var(--soft);
+        padding: 4px 9px;
+        min-height: 30px;
+    }
+    header {
+        padding: 0 12px;
+    }
+    .header-left {
+        gap: 5px;
+    }
+    .header-left>.muted {
+        display: none;
+    }
+    .header-avatar {
+        display: none;
+    }
+    .header-right button {
+        font-size: 11px;
+        padding: 5px 7px;
+    }
+    main {
+        padding: 18px 12px;
+        gap: 16px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    .card {
+        padding: 15px;
+    }
+    .table-card {
+        padding: 0;
+    }
+    .metric {
+        min-height: 105px;
+    }
+    .metric-value {
+        font-size: 20px;
+    }
+    .grid {
+        gap: 10px;
+    }
+    .donut-row {
+        grid-template-columns: 115px 1fr;
+        gap: 12px;
+    }
+    .controls select {
+        max-width: 100%;
+    }
+    .page-head {
+        align-items: flex-start;
+    }
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* 8. Bộ lọc khoảng ngày — Trang Tổng quan */
+.overview-date-filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.overview-date-filter label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 12px;
+    color: #59647a;
+    font-weight: 500;
+}
+
+.overview-date-filter input[type="date"] {
+    min-width: 135px;
+    font: inherit;
+    font-size: 13px;
+    color-scheme: light;
+}
+
+.overview-date-filter button {
+    min-height: 34px;
+}
+
+@media (max-width: 600px) {
+    .overview-date-filter {
+        width: 100%;
+    }
+    .overview-date-filter label {
+        flex: 1 1 135px;
+    }
+}
+
+/* 9. Nút Làm mới: tránh nhấn liên tục khi đang nạp dữ liệu */
+#refresh:disabled {
+    cursor: wait;
+}
+
+/* 10. Tổng quan - độ chi tiết biểu đồ và thông tin từng mốc */
+.overview-chart-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.overview-revenue-plot {
+    position: relative;
+}
+
+.overview-hover-value[hidden] {
+    /* Giữ khoảng trống để dòng tổng không dịch chuyển khi rê chuột. */
+    display: block;
+    visibility: hidden;
+}
+
+.overview-crosshair {
+    stroke: #94a3b8;
+    stroke-dasharray: 4 3;
+    pointer-events: none;
+}
+
+.overview-hover-value {
+    /* Dòng số liệu dưới trục thời gian, ngay trên dòng tổng kỳ. */
+    position: static;
+    pointer-events: none;
+    width: 100%;
+    min-height: 30px;
+    padding: 6px 10px;
+    color: #59647a;
+    background: #f5f7fc;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: center;
+    border-radius: 6px;
+    font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 700px) {
+    .overview-chart-controls {
+        align-items: flex-start;
+    }
+    .overview-hover-value {
+        min-height: 48px;
+    }
+}
+
+
+/* 11. Hover đồng bộ cho các biểu đồ */
+.hover-host {
+    position: relative;
+}
+
+.interactive-plot {
+    position: relative;
+}
+
+.chart-crosshair {
+    stroke: #94a3b8;
+    stroke-dasharray: 4 3;
+    pointer-events: none;
+}
+
+.chart-hover-value[hidden] {
+    display: block;
+    visibility: hidden;
+}
+
+.chart-hover-value {
+    width: 100%;
+    min-height: 30px;
+    margin-top: 8px;
+    padding: 6px 10px;
+    color: #59647a;
+    background: #f5f7fc;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: center;
+    border-radius: 6px;
+    font-variant-numeric: tabular-nums;
+    pointer-events: none;
+}
+
+.donut-chart svg {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.donut-value {
+    font-family: Inter,system-ui,sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    fill: #0f172a;
+}
+
+.donut-caption {
+    font-family: Inter,system-ui,sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    fill: #6b7280;
+}
+
+.donut-segment,
+.donut-item,
+.bar-item,
+.pca-point,
+.chart-point {
+    cursor: pointer;
+}
+
+.bar-item {
+    padding-bottom: 2px;
+}
+
+/* Thanh phần dư: làm nổi giá trị đã hiển thị, không lặp tooltip. */
+.bar-highlight:hover .bar-fill {
+    filter: brightness(.88);
+}
+.bar-highlight:hover .list-row b {
+    color: var(--primary);
+}
+
+/* Bảng xếp hạng: chuyển tab sản phẩm / danh mục. */
+.ranking-tabs {
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 16px;
+}
+
+.ranking-content {
+    min-width: 0;
+}
